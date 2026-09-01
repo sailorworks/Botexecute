@@ -28,7 +28,26 @@ const envSchema = z.object({
   BOT_RPC_URL: z.string().url().optional(),
 });
 
-const parsed = envSchema.safeParse(process.env);
+const shouldSkipValidation =
+  process.env.SKIP_ENV_VALIDATION === "1" ||
+  process.env.SKIP_ENV_VALIDATION === "true" ||
+  process.env.npm_lifecycle_event === "build" && !process.env.AUTH_SECRET;
+
+const parsed = shouldSkipValidation
+  ? envSchema.safeParse({
+      AUTH_SECRET: process.env.AUTH_SECRET || "build_dummy_auth_secret",
+      COMPOSIO_API_KEY: process.env.COMPOSIO_API_KEY || "build_dummy_composio",
+      OPENAI_API_KEY: process.env.OPENAI_API_KEY || "build_dummy_openai",
+      TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID || "-1000000000000",
+      TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN || "000000:dummy_bot_token",
+      NEXT_PUBLIC_PRIVY_APP_ID: process.env.NEXT_PUBLIC_PRIVY_APP_ID || "dummy_privy_app_id",
+      PRIVY_APP_ID: process.env.PRIVY_APP_ID || "dummy_privy_app_id",
+      PRIVY_APP_SECRET: process.env.PRIVY_APP_SECRET || "dummy_privy_app_secret",
+      NEXT_PUBLIC_SUPABASE_URL: process.env.NEXT_PUBLIC_SUPABASE_URL || "https://dummy.supabase.co",
+      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY: process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_DEFAULT_KEY || "dummy_anon_key",
+      ...process.env,
+    })
+  : envSchema.safeParse(process.env);
 
 if (!parsed.success) {
   console.error("Invalid environment variables:", JSON.stringify(parsed.error.format(), null, 2));
