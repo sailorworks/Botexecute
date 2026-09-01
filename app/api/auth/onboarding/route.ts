@@ -4,7 +4,7 @@ import { db } from "@/lib/db";
 import { users } from "@/lib/db/schema";
 import { env } from "@/lib/env";
 
-const privy = new PrivyClient(env.PRIVY_APP_ID, env.PRIVY_APP_SECRET);
+const privy = new PrivyClient(env.PRIVY_APP_ID || "", env.PRIVY_APP_SECRET || "");
 
 export async function POST(req: Request) {
   try {

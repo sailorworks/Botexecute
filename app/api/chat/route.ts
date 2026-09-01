@@ -415,7 +415,7 @@ export async function POST(req: Request) {
     const result = streamText({
       model,
       messages: coreMessages,
-      system: buildSystemPrompt(env.TELEGRAM_CHAT_ID, connectedToolkits, disconnectedToolkits),
+      system: buildSystemPrompt(env.TELEGRAM_CHAT_ID || "", connectedToolkits, disconnectedToolkits),
       tools: { ...mcpTools, ...telegramTools },
       stopWhen: stepCountIs(20),
       onFinish: async () => {
