@@ -6,7 +6,7 @@ export const botChainMainnet = defineChain({
   nativeCurrency: { name: "BOT", symbol: "BOT", decimals: 18 },
   rpcUrls: {
     default: {
-      http: [process.env.NEXT_PUBLIC_BOT_RPC_URL ?? "https://rpc.botchain.ai"],
+      http: [process.env.NEXT_PUBLIC_BOT_RPC_URL || "https://rpc.botchain.ai"],
     },
   },
   blockExplorers: {

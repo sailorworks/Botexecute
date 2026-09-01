@@ -5,7 +5,7 @@ import { botChainMainnet } from "./chain";
 import { VAULT_ABI } from "./abi";
 import { VAULT_ADDRESS } from "./config";
 
-const RPC = process.env.BOT_RPC_URL ?? "https://rpc.botchain.ai";
+const RPC = process.env.BOT_RPC_URL || "https://rpc.botchain.ai";
 
 function getOracleAccount() {
   const pk = process.env.ORACLE_PRIVATE_KEY;

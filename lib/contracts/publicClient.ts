@@ -7,5 +7,5 @@ import { botChainMainnet } from "./chain";
 // Safe to import in both server and client components.
 export const publicClient = createPublicClient({
   chain:     botChainMainnet,
-  transport: http(process.env.NEXT_PUBLIC_BOT_RPC_URL ?? "https://rpc.botchain.ai"),
+  transport: http(process.env.NEXT_PUBLIC_BOT_RPC_URL || "https://rpc.botchain.ai"),
 });
