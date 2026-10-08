@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { MessageSquareText, Loader2 } from "lucide-react";
+import BotChainProofCard from "./components/BotChainProofCard";
 import { usePrivy } from "@privy-io/react-auth";
 import { useRouter } from "next/navigation";
 
@@ -68,7 +69,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative h-[100dvh] w-full overflow-hidden flex flex-col items-center font-sans tracking-tight bg-[#f4f4f4] dark:bg-[#0f1011]">
+    <div className="relative min-h-[100dvh] w-full overflow-x-hidden flex flex-col items-center font-sans tracking-tight bg-[#f4f4f4] dark:bg-[#0f1011]">
       <div className="global-noise" />
       <div className="bg-razor-grid absolute inset-0 pointer-events-none" />
 
@@ -218,6 +219,10 @@ export default function Home() {
         </motion.div>
 
       </main>
+
+      <div className="relative z-10 w-full max-w-[1400px] px-4 pb-10">
+        <BotChainProofCard />
+      </div>
     </div>
   );
 }

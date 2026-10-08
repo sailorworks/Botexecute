@@ -40,8 +40,8 @@ An AI-native on-chain accountability and prediction market protocol built on **B
 ### Contract Addresses (BOT Chain Mainnet)
 | Contract | Address |
 | :--- | :--- |
-| **ChallengeVault** | `TBD (Deploying)` |
-| **PredictionMarket** | `TBD (Deploying)` |
+| **ChallengeVault** | [`0x32Ae204Fb204888e9Fa79CC2afD11cF398C8Eb2E`](https://scan.botchain.ai/address/0x32Ae204Fb204888e9Fa79CC2afD11cF398C8Eb2E) |
+| **PredictionMarket** | [`0x139f06D9F9374d714f786f65dB8791B6339a50A2`](https://scan.botchain.ai/address/0x139f06D9F9374d714f786f65dB8791B6339a50A2) |
 
 ---
 
