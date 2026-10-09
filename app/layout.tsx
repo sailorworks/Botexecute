@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Providers from "./components/Providers";
 import Nav from "./components/Nav";
+import BotChainProofCard from "./components/BotChainProofCard";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,6 +33,11 @@ export default function RootLayout({
         <Providers>
           <Nav />
           {children}
+          <footer className="w-full border-t border-black/10 bg-[#071210] px-4 py-8 dark:border-white/10">
+            <div className="mx-auto w-full max-w-[1400px]">
+              <BotChainProofCard />
+            </div>
+          </footer>
         </Providers>
       </body>
     </html>
